@@ -1,3 +1,3 @@
-export const FETCH_PROGRESSBARS = 'fetch_progressbars';
+export const FETCH_PROGRESSBARS = 'FETCH_PROGRESSBARS';
 export const LOAD_ProgressBar_LOADING = 'progressbars_loading';
 export const LOAD_PROGRESSBARS_ERROR = 'progressbars_error';

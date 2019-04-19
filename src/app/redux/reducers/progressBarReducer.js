@@ -17,7 +17,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_PROGRESSBARS:
-      return { ...state, bars: action.payload, loading: false };
+      return { ...state, bars: state.bars.concat(action.payload), loading: false };
 
     case LOAD_ProgressBar_LOADING: {
       return {

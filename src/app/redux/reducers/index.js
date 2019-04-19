@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import progressBarReducer from './progressBarReducer';
+import rotateReducer from './rotateReducer';
 
 
 export default combineReducers({
-  progressBar: progressBarReducer
+  progressBar: progressBarReducer,
+  rotateReducer: rotateReducer
   
 });
