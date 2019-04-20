@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import {API_ProgressBarURL} from '../../common/constants';
 
-import {FETCH_PROGRESSBARS} from './types';
+import {FETCH_PROGRESSBARS, UPDATE_PROGRESSBARS} from './types';
 
 
 // export const fetchProgressBars = () => async (dispatch) => {
@@ -55,15 +55,14 @@ export const fetchProgressBars = () => {
 
 
 return (dispatch) => {
-//console.log('in the dispatch');
+
   return axios.get(url).then(response => {
-      //console.log('response from url ', response);
+
       response.data.bars.map( (bar, index) => {
         dispatch({type: FETCH_PROGRESSBARS, payload: {bar, index}} )
       });
 
-      // dispatch({type: FETCH_PROGRESSBARS, payload: response.data});
-console.log('response is ',response);
+
   })
   .catch(error => {
     throw(error);
@@ -71,6 +70,17 @@ console.log('response is ',response);
 }
 
 }
+
+export const updateProgressBar = (id, value) => {
+
+return (dispatch) => {
+dispatch({type:UPDATE_PROGRESSBARS, payload: {id, value} })
+}
+
+
+};
+
+
 
 export const startAction = {
   type: "rotate",

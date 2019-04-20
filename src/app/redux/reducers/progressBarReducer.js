@@ -1,7 +1,8 @@
 import {
   FETCH_PROGRESSBARS,
   LOAD_ProgressBar_LOADING,
-  LOAD_PROGRESSBARS_ERROR
+  LOAD_PROGRESSBARS_ERROR,
+  UPDATE_PROGRESSBARS
 } from '../actions/types';
 
 
@@ -18,6 +19,11 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_PROGRESSBARS:
       return { ...state, bars: state.bars.concat(action.payload), loading: false };
+
+      case UPDATE_PROGRESSBARS:
+      const index = action.payload.id;
+
+        return { ...state, bars: [...state.bars, {bar: action.payload.value, index:action.payload.id} ], loading: false };
 
     case LOAD_ProgressBar_LOADING: {
       return {
