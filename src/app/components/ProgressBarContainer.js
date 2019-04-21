@@ -12,6 +12,11 @@ import Button from 'react-bootstrap/Button';
 
 class ProgressBarContainer extends Component {
 
+componentDidMount() {
+  this.props.loadDataAction();
+}
+
+
   render() {
 
     return (
@@ -20,7 +25,7 @@ class ProgressBarContainer extends Component {
       <BarsContainer></BarsContainer>
 
       <ProgressBarControlContainer></ProgressBarControlContainer>
-      <Button onClick={() => this.props.loadDataAction()}>Load data</Button>
+    
 
       </div>
     );

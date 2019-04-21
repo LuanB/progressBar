@@ -21,9 +21,15 @@ export default function(state = initialState, action) {
       return { ...state, bars: state.bars.concat(action.payload), loading: false };
 
       case UPDATE_PROGRESSBARS:
-      const index = action.payload.id;
+    const updatedValue = state.bars.map((item, index) => {
+      if(item.id === action.payload.id) {
 
-        return { ...state, bars: [...state.bars, {bar: action.payload.value, index:action.payload.id} ], loading: false };
+        return {...item, value: 99}
+      }
+      return item
+    })
+
+    return {...state, bars: updatedValue};
 
     case LOAD_ProgressBar_LOADING: {
       return {

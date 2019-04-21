@@ -9,18 +9,18 @@ class BarsContainer extends Component {
 
   render() {
 
-  console.log('props in barsContainer is ', this.props.ProgressBars)
+  console.log('props in barsContainer is ', this.props)
 
     return (<div>
       <div>Bars container</div>
 
 
-      {this.props.ProgressBars ? (this.props.ProgressBars.map(ProgressBar => {
+      {this.props.ProgressBars && this.props.ProgressBars.map((ProgressBar, index) => {
         return (
-          <BarComponent now={ProgressBar.bar} key={ProgressBar.index} id={ProgressBar.index}/>
+          <BarComponent now={ProgressBar.value} key={index} id={ProgressBar.id}/>
 
         );
-      })) : <div>no data</div> }
+      })}
 
     <Button onClick={() => this.props.updateProgressBar(0, 10)}>Increase</Button>
 

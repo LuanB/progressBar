@@ -58,8 +58,13 @@ return (dispatch) => {
 
   return axios.get(url).then(response => {
 
-      response.data.bars.map( (bar, index) => {
-        dispatch({type: FETCH_PROGRESSBARS, payload: {bar, index}} )
+      response.data.bars.map( (barValue, index) => {
+
+        dispatch({
+          type: FETCH_PROGRESSBARS,
+          payload: {
+            id:index,
+            value: barValue} } )
       });
 
 
@@ -71,10 +76,12 @@ return (dispatch) => {
 
 }
 
-export const updateProgressBar = (id, value) => {
+export const updateProgressBar = (id, barValue) => {
 
 return (dispatch) => {
-dispatch({type:UPDATE_PROGRESSBARS, payload: {id, value} })
+dispatch({type:UPDATE_PROGRESSBARS, payload: {
+  id:0,
+  value:barValue} })
 }
 
 
