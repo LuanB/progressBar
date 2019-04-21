@@ -2,13 +2,17 @@ import {
   FETCH_PROGRESSBARS,
   LOAD_ProgressBar_LOADING,
   LOAD_PROGRESSBARS_ERROR,
-  UPDATE_PROGRESSBARS
+  UPDATE_PROGRESSBARS,
+  FETCH_PROGRESSBARSAPIDATA
 } from '../actions/types';
 
 
 
 const initialState = {
+
+  buttons: [],
   bars: [],
+  limit: 100,
   barsIsLoading: false,
   loading: false,
   error: ''
@@ -20,11 +24,16 @@ export default function(state = initialState, action) {
     case FETCH_PROGRESSBARS:
       return { ...state, bars: state.bars.concat(action.payload), loading: false };
 
+      case FETCH_PROGRESSBARSAPIDATA:
+        return { ...state, buttons:action.payload.buttons, bars: action.payload.bars, limit: action.payload.limit, loading: false };
+
+
       case UPDATE_PROGRESSBARS:
+      console.log('in update progress bar reducer');
     const updatedValue = state.bars.map((item, index) => {
       if(item.id === action.payload.id) {
 
-        return {...item, value: 99}
+        return {...item, value: action.payload.value}
       }
       return item
     })

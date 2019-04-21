@@ -2,18 +2,23 @@ import React, { Component } from 'react';
 
 import {connect} from 'react-redux';
 
-import {fetchProgressBars} from '../redux/actions'
+import {fetchProgressBarsAPIData} from '../redux/actions'
 
 import BarsContainer from './BarsContainer'
 import ProgressBarControlContainer from './ProgressBarControlContainer'
+import ButtonsControlContainer from './ButtonsControlContainer'
 
 import Button from 'react-bootstrap/Button';
+
+
 
 
 class ProgressBarContainer extends Component {
 
 componentDidMount() {
-  this.props.loadDataAction();
+  // this.props.loadDataAction();
+
+  this.props.loadAPIDataAction();
 }
 
 
@@ -25,7 +30,9 @@ componentDidMount() {
       <BarsContainer></BarsContainer>
 
       <ProgressBarControlContainer></ProgressBarControlContainer>
-    
+
+      <ButtonsControlContainer></ButtonsControlContainer>
+
 
       </div>
     );
@@ -41,7 +48,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-loadDataAction: () => dispatch(fetchProgressBars())
+loadAPIDataAction: () => dispatch(fetchProgressBarsAPIData())
+
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProgressBarContainer);
