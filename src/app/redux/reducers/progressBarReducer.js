@@ -35,7 +35,7 @@ export default function(state = initialState, action) {
     const updatedValue = state.bars.map((item = 0, index) => {
       if(index === action.payload.id) {
         console.log('item is ',item)
-        return  action.payload.value
+        return  (item + action.payload.value > 0 ? item + action.payload.value : 0 )
       }
       return item
     })

@@ -17,7 +17,7 @@ class BarsContainer extends Component {
 
       {this.props.ProgressBars && this.props.ProgressBars.map((ProgressBar, index) => {
         return (
-          <BarComponent now={ProgressBar} key={index} id={ProgressBar.id}/>
+          <BarComponent now={ProgressBar} key={index} id={ProgressBar.id} limit={this.props.ProgressLimit}/>
 
         );
       })}
@@ -33,7 +33,8 @@ class BarsContainer extends Component {
 const mapStateToProps = state => {
   return {
   ProgressBars: state.progressBar.bars,
-  SelectedBtn: state.progressBar.selectedBtn
+  SelectedBtn: state.progressBar.selectedBtn,
+  ProgressLimit: state.progressBar.limit
   }
 
 };
