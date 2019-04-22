@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import {API_ProgressBarURL} from '../../common/constants';
 
-import {FETCH_PROGRESSBARS, UPDATE_PROGRESSBARS, FETCH_PROGRESSBARSAPIDATA} from './types';
+import {FETCH_PROGRESSBARS, UPDATE_PROGRESSBARS, FETCH_PROGRESSBARSAPIDATA, SELECTED_PROGRESSBAR} from './types';
 
 
 
@@ -59,9 +59,22 @@ return (dispatch) => {
 
 }
 
+export const SelectedProgressBar = (id) => {
+
+return (dispatch) => {
+  console.log('selected progress bar dispatch ', id);
+dispatch({type:SELECTED_PROGRESSBAR, payload: {
+  id:id
+  } })
+}
+
+
+};
+
 
 
 export const updateProgressBar = (id, barValue) => {
+
 
 return (dispatch) => {
   console.log('update dispatch');
@@ -69,6 +82,7 @@ dispatch({type:UPDATE_PROGRESSBARS, payload: {
   id:id,
   value:barValue} })
 }
+
 
 
 };

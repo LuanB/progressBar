@@ -3,7 +3,8 @@ import {
   LOAD_ProgressBar_LOADING,
   LOAD_PROGRESSBARS_ERROR,
   UPDATE_PROGRESSBARS,
-  FETCH_PROGRESSBARSAPIDATA
+  FETCH_PROGRESSBARSAPIDATA,
+  SELECTED_PROGRESSBAR
 } from '../actions/types';
 
 
@@ -13,6 +14,7 @@ const initialState = {
   buttons: [],
   bars: [],
   limit: 100,
+  selectedBtn: {id:0},
   barsIsLoading: false,
   loading: false,
   error: ''
@@ -29,16 +31,24 @@ export default function(state = initialState, action) {
 
 
       case UPDATE_PROGRESSBARS:
-      console.log('in update progress bar reducer');
-    const updatedValue = state.bars.map((item, index) => {
-      if(item.id === action.payload.id) {
-
-        return {...item, value: action.payload.value}
+      console.log('in update progress bar reducer. state is ', state);
+    const updatedValue = state.bars.map((item = 0, index) => {
+      if(index === action.payload.id) {
+        console.log('item is ',item)
+        return  action.payload.value
       }
       return item
     })
 
     return {...state, bars: updatedValue};
+
+
+    case SELECTED_PROGRESSBAR: {
+      return {
+        ...state,
+        selectedBtn: action.payload
+            };
+    }
 
     case LOAD_ProgressBar_LOADING: {
       return {

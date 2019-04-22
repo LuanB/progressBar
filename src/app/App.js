@@ -11,7 +11,7 @@ import './App.scss';
 
 class App extends Component {
   render() {
-
+ console.log('app state is ', this.props);
     return (
       <div className="App">
         <header className="App-header">

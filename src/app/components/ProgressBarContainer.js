@@ -16,7 +16,7 @@ import Button from 'react-bootstrap/Button';
 class ProgressBarContainer extends Component {
 
 componentDidMount() {
-  // this.props.loadDataAction();
+
 
   this.props.loadAPIDataAction();
 }
