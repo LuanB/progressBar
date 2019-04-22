@@ -10,7 +10,7 @@ import rootReducer from './app/redux/reducers'
 
 import './index.css';
 import App from './app/App';
-//import configureStore from './app/redux/store/configureStore';
+
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

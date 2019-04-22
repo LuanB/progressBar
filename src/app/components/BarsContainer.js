@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
-
 import {connect} from 'react-redux';
-import {fetchProgressBars, updateProgressBar} from '../redux/actions'
-import BarComponent from './BarComponent'
+
+import BarComponent from './BarComponent';
 
 class BarsContainer extends Component {
 
   render() {
 
-
-
-    return (<div>
+    return (
+      <div>
       <div>Bars container</div>
-
 
       {this.props.ProgressBars && this.props.ProgressBars.map((ProgressBar, index) => {
         return (
@@ -21,9 +17,7 @@ class BarsContainer extends Component {
 
         );
       })}
-
-
-</div>
+      </div>
     );
   }
 
@@ -33,16 +27,12 @@ class BarsContainer extends Component {
 const mapStateToProps = state => {
   return {
   ProgressBars: state.progressBar.bars,
-  SelectedBtn: state.progressBar.selectedBtn,
   ProgressLimit: state.progressBar.limit
   }
 
 };
 
-const mapDispatchToProps = dispatch => ({
-loadDataAction: () => dispatch(fetchProgressBars()),
-updateProgressBar: (id, value) => dispatch(updateProgressBar(id, value))
-})
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(BarsContainer);
+
+export default connect(mapStateToProps, null)(BarsContainer);

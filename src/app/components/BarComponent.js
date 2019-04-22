@@ -7,7 +7,7 @@ const BarComponent = ({now = 0, id, limit}) => {
 
 
 now > limit ? variantFlag = 'danger' : variantFlag = 'info'
-console.log('limit is ', limit);
+
 return (
   <div>
   <ProgressBar now={now} label={`${now}%`} variant={variantFlag} />

@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {SelectedProgressBar} from '../redux/actions'
 
-import {FETCH_PROGRESSBARS, UPDATE_PROGRESSBARS, FETCH_PROGRESSBARSAPIDATA, SELECTED_PROGRESSBAR} from '../redux/actions/types';
-import ProgressBarControlComponent from './ProgressBarControlComponent'
+
+import {SELECTED_PROGRESSBAR} from '../redux/actions/types';
+import ProgressBarControlComponent from './ProgressBarControlComponent';
 
 class ProgressBarControlContainer extends Component {
 
 
-
   render() {
-
 
   const handleSelectedBtn = (value) => {
     this.props.SelectedProgressBar(value);
-    console.log('handleSelectedBtn is ', value);
-  }
-
+    }
 
 
     return (
       <div>
-      <div>ProgressBar Control Container</div>
-      <ProgressBarControlComponent bars={this.props.bars} selectedBtn={(value)=>handleSelectedBtn(value)} ></ProgressBarControlComponent>
+        <ProgressBarControlComponent bars={this.props.bars} selectedBtn={(value)=>handleSelectedBtn(value)} ></ProgressBarControlComponent>
       </div>
     );
   }
@@ -32,8 +27,6 @@ class ProgressBarControlContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-  ButtonsControls: state.progressBar.buttons,
-  FullState: state,
   bars: state.progressBar.bars
   }
 };
