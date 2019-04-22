@@ -2,36 +2,7 @@ import axios from 'axios'
 
 import {API_ProgressBarURL} from '../../common/constants';
 
-import {FETCH_PROGRESSBARS, UPDATE_PROGRESSBARS, FETCH_PROGRESSBARSAPIDATA, SELECTED_PROGRESSBAR} from './types';
-
-
-
-export const fetchProgressBars = () => {
-  const url = API_ProgressBarURL;
-
-
-return (dispatch) => {
-
-  return axios.get(url).then(response => {
-
-      response.data.bars.map( (barValue, index) => {
-
-        dispatch({
-          type: FETCH_PROGRESSBARS,
-          payload: {
-            id:index,
-            value: barValue} } )
-      });
-
-
-  })
-  .catch(error => {
-    throw(error);
-  })
-}
-
-}
-
+import {UPDATE_PROGRESSBARS, FETCH_PROGRESSBARSAPIDATA, SELECTED_PROGRESSBAR} from './types';
 
 
 export const fetchProgressBarsAPIData = () => {
@@ -50,8 +21,6 @@ return (dispatch) => {
         limit: response.data.limit
       } } );
   })
-
-
   .catch(error => {
     throw(error);
   })
@@ -60,10 +29,8 @@ return (dispatch) => {
 }
 
 export const SelectedProgressBar = (id) => {
-
 return (dispatch) => {
-  console.log('selected progress bar dispatch ', id);
-dispatch({type:SELECTED_PROGRESSBAR, payload: {
+  dispatch({type:SELECTED_PROGRESSBAR, payload: {
   id:id
   } })
 }
@@ -72,17 +39,12 @@ dispatch({type:SELECTED_PROGRESSBAR, payload: {
 };
 
 
-
 export const updateProgressBar = (id, barValue) => {
-
-
 return (dispatch) => {
-  console.log('update dispatch');
-dispatch({type:UPDATE_PROGRESSBARS, payload: {
+  dispatch({type:UPDATE_PROGRESSBARS, payload: {
   id:id,
   value:barValue} })
 }
-
 
 
 };
