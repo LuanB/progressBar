@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProgressBarContainer from '../app/components/ProgressBarContainer'
 import './App.scss';
+import './styles/main.scss'
 
 class App extends Component {
   render() {
@@ -10,15 +11,18 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
 
-          <p>
+          <p >
           Progress Bar App
           </p>
 
-          <div>
-          <ProgressBarContainer></ProgressBarContainer>
-          </div>
+
 
         </header>
+        <div className='progressBarContainer'>
+        <ProgressBarContainer></ProgressBarContainer>
+        </div>
+
+
       </div>
     );
   }

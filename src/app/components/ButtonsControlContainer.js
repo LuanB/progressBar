@@ -10,7 +10,7 @@ class ButtonsControlContainer extends Component {
 render() {
 
 return (
-  <div>
+  <div className='buttonsControlContainer'>
   {
     this.props.ButtonsControls &&
     <ButtonControlComponent

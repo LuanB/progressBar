@@ -7,7 +7,11 @@ const ButtonControlComponent = ({ButtonsValues, handleClick}) => (
 ButtonsValues.map((BtnControlValue, index) => {
 
 return (
+  
   <Button key={index} onClick={()=> handleClick(BtnControlValue)}>{BtnControlValue}</Button>
+
+
+
   )
 
 })

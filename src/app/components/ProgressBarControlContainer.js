@@ -16,7 +16,7 @@ class ProgressBarControlContainer extends Component {
 
 
     return (
-      <div>
+      <div className='progressBarControlContainer'>
         <ProgressBarControlComponent bars={this.props.bars} selectedBtn={(value)=>handleSelectedBtn(value)} ></ProgressBarControlComponent>
       </div>
     );

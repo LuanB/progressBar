@@ -19,14 +19,19 @@ componentDidMount() {
   render() {
 
     return (
-      <div>
+      <div className='progressBarContainer'>
 
+      <div className='progressBarContainer__barsContainer'>
       <BarsContainer></BarsContainer>
-
+      </div>
+      <div className='controls'>
+      <div className='progressBarContainer__progressBarControlContainer'>
       <ProgressBarControlContainer></ProgressBarControlContainer>
-
+      </div>
+      <div className='progressBarContainer__buttonsControlContainer'>
       <ButtonsControlContainer></ButtonsControlContainer>
-
+      </div>
+      </div>
 
       </div>
     );

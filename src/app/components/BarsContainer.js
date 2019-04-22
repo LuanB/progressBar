@@ -8,13 +8,13 @@ class BarsContainer extends Component {
   render() {
 
     return (
-      <div>
-      <div>Bars container</div>
+      <div className='barsContainer'>
 
       {this.props.ProgressBars && this.props.ProgressBars.map((ProgressBar, index) => {
         return (
+          <div className='barsContainer__BarComponent' key={index}>
           <BarComponent now={ProgressBar} key={index} id={ProgressBar.id} limit={this.props.ProgressLimit}/>
-
+          </div>
         );
       })}
       </div>

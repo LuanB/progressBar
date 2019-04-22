@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ProgressBarControlComponent = ({bars, selectedBtn}) => (
-<div>
+<div className='progressBarControlComponent'>
         <select className="browser-default custom-select" id='selectbtn' onChange={(e) => selectedBtn(parseInt(e.target.value)) }>
 
         {bars.map((item, index) => {

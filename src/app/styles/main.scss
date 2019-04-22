@@ -1,0 +1,19 @@
+
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+
+@import "base/base";
+
+
+ @import "components/_barsContainer.scss";
+@import "components/_progressBarContainer.scss";
+
+@import "components/_progressBarControlContainer.scss";
+@import "components/_progressBarControlComponent.scss";
+@import "components/_buttonsControlContainer.scss";
+@import "components/_barComponent.scss";
+@import "components/_controls.scss";
+
+
+//@import "layout/footer";
